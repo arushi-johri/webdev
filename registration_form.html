@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Registration form</title>
+</head>
+<body>
+<h1>Registration form</h1>
+<form action="thankyou_for_registration.html" method="get">
+<div>
+<label for="username">User Name</label>
+<input type="text" name="username" id="username" placeholder="username">
+</div>
+<div>
+<label for="password">Password</label>
+<input type="password" name="username" id="username" maxlength="8" required>
+</div>
+<div>
+<label for="dob">Date of Birth</label>
+<input type="date" name="dob" id="dob" min="01-01-1900">
+</div>
+<div>
+<label for="veg">Vegetarian</label>
+<input type="checkbox" name="veg" id="veg">
+</div>
+<div>
+<label for="non-veg">Non-Vegetarian</label>
+<input type="checkbox" name="non-veg" id="non-veg">
+</div>
+<div>
+<input type="radio" name="gender" id="male" value="male">
+<label for="male" >MALE</label>
+</div>
+<div>
+<input type="radio" name="gender" id="female" value="female">
+<label for="female" >FEMALE</label>
+</div>
+<div>
+<input type="radio" name="gender" id="transgender" value="transgender">
+<label for="transgender" >TRANSGENDER</label>
+</div>
+<div>
+<select name="Native state">
+<option value="Tamil Nadu">Tamil Nadu</option>
+<option value="Andhra Pradesh">Andhra Pradesh</option>
+<option value="Kerala">Kerala</option>
+<option value="Karnataka">Karnataka</option>
+</select>
+</div>
+<br>
+<button type="Submit">Submit</button>
+<br>
+<button type="reset">Reset</button>
+</form>
+</body>
+</html>
