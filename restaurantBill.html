@@ -1,0 +1,109 @@
+<html>
+	<head>
+		<title>Bill Calculation</title>
+		<style>
+			body{
+				background-color:DarkOrange;
+				font-style:italic;
+				margin: 0 auto;
+			}
+			header,footer{
+				background-color:darkred;
+				text-align:center;
+				font-style:italic;
+				color:white;
+				padding:10px;
+				margin-bottom:20px;
+			}
+			table{
+				background-color:darkseagreen;
+				border-collapse:collapse;
+				margin: 0 auto;
+				width:80%;
+				max-width: 600px;
+				font-style:italic;
+			}
+			th,td{
+				border: 2px solid black;
+				padding:12px;
+				text-align:center;
+			}
+			.button-container{
+				display:flex;
+				justify-content: center;
+				margin:20px;
+			}
+			button{
+				background-color:goldenrod;
+				font-style:italic;
+				font-weight:bold;
+				padding:5px;
+				border-radius:5px;
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<h1>Welcome to Apna Dhaba!</h1>
+			<p>Bring all the richness and flavours from purani delhi to you!</p>
+		</header>
+		<table border="3">
+			<tr >
+				<td><strong>Sno.</strong></td>
+				<td><strong>Name of the dish</strong></td>
+				<td><strong>Price(including gst)</strong></td>
+				<td><strong>Select the item</strong></td>
+			</tr>
+			<tr>
+				<td>1.</td>
+				<td>Gulab Jamun</td>
+				<td>Rs. 100/-</td>
+				<td><input type="checkbox" class="eatable" value="g"></td>
+			</tr>
+			<tr>
+				<td>2.</td>
+				<td>Daulat ki chat</td>
+				<td>Rs. 150/-</td>
+				<td><input type="checkbox" class="eatable" value="d"></td>
+			</tr>
+			<tr>
+				<td>3.</td>
+				<td>Aloo ke parathe</td>
+				<td>Rs. 80/-</td>
+				<td><input type="checkbox" class="eatable" value="a"></td>
+			</tr>
+			<tr>
+				<td>4.</td>
+				<td>Aloo ki tikki</td>
+				<td>Rs. 90/-</td>
+				<td><input type="checkbox" class="eatable" value="t"></td>
+			</tr>
+			<tr>
+				<td>5.</td>
+				<td>Chole Bhature</td>
+				<td>Rs. 200/-</td>
+				<td><input type="checkbox" class="eatable" value="c"></td>
+			</tr>
+		</table>
+		<div class="button-container">
+			<button type="button" onclick="calculateBill()">Calculate the bill</button>
+		</div>
+		<p id="bill"></p>
+		<script>
+			function calculateBill(){
+				let items = {'g':100,'d':150,'a':80,'t':90,'c':200};
+				let orders = document.getElementsByClassName('eatable');
+				let bill = 0;
+				for(let i=0;i<orders.length;i++){
+					if(orders[i].checked){
+						let order = orders[i].value;
+						bill += items[order];
+					}
+				}
+				document.getElementById('bill').style.textAlign="center";
+				document.getElementById('bill').innerHTML="Your total bill is:- "+bill;
+			}
+		</script>
+		
+	</body>
+</html>
