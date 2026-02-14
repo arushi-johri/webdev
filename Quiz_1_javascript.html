@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Quiz</title>
+  <style>
+    * {
+      background-color: lightgray;
+      font-family: Arial, sans-serif;
+      box-sizing: border-box;
+    }
+    body {
+      background-color: lightgray;
+      padding: 20px;
+    }
+    div.quiz-section {
+      margin: 10px 0;
+      padding: 20px;
+      border-radius: 5px;
+      background-color: white;
+    }
+    h3 {
+      margin-top: 0;
+      background-color: white;
+    }
+    label {
+      display: block;
+      margin: 6px 0;
+      background-color: white;
+      cursor: pointer;
+      padding: 2px 0;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    #result {
+      background-color: #e8f5e9;
+      color: #2e7d32;
+      padding: 12px;
+      margin-top: 15px;
+      border-radius: 5px;
+      font-weight: bold;
+      display: none; /* Optional: hide until shown */
+    }
+  </style>
+</head>
+<body>
+  <div class="quiz-section">
+    <h3>1. Which of the following is used to define the structure of a webpage?</h3>
+    <label><input type="radio" id="q1a" name="q1"> A. CSS</label>
+    <label><input type="radio" id="q1b" name="q1"> B. JavaScript</label>
+    <label><input type="radio" id="q1c" name="q1"> C. HTML</label>
+    <label><input type="radio" id="q1d" name="q1"> D. PHP</label>
+  </div>
+
+  <div class="quiz-section">
+    <h3>2. What does CSS stand for?</h3>
+    <label><input type="radio" id="q2a" name="q2"> A. Computer Style Sheets</label>
+    <label><input type="radio" id="q2b" name="q2"> B. Cascading Style Sheets</label>
+    <label><input type="radio" id="q2c" name="q2"> C. Creative Styling System</label>
+    <label><input type="radio" id="q2d" name="q2"> D. Colorful Style Syntax</label>
+  </div>
+
+  <div class="quiz-section">
+    <h3>3. Which tag is used to link an external CSS file in an HTML document?</h3>
+    <label><input type="radio" id="q3a" name="q3"> A. &lt;script&gt;</label>
+    <label><input type="radio" id="q3b" name="q3"> B. &lt;link&gt;</label>
+    <label><input type="radio" id="q3c" name="q3"> C. &lt;style&gt;</label>
+    <label><input type="radio" id="q3d" name="q3"> D. &lt;css&gt;</label>
+  </div>
+
+  <div class="quiz-section">
+    <h3>4. Which of the following is a block-level element by default?</h3>
+    <label><input type="radio" id="q4a" name="q4"> &lt;span&gt;</label>
+    <label><input type="radio" id="q4b" name="q4"> &lt;a&gt;</label>
+    <label><input type="radio" id="q4c" name="q4"> &lt;div&gt;</label>
+    <label><input type="radio" id="q4d" name="q4"> &lt;img&gt;</label>
+  </div>
+
+  <div class="quiz-section">
+    <h3>5. Where should you place the &lt;script&gt; tag for best performance if it manipulates the DOM?</h3>
+    <label><input type="radio" id="q5a" name="q5"> A. Inside the &lt;head&gt; section</label>
+    <label><input type="radio" id="q5b" name="q5"> B. Just before you close the &lt;/body&gt; tag</label>
+    <label><input type="radio" id="q5c" name="q5"> C. Inside the &lt;style&gt; tag</label>
+    <label><input type="radio" id="q5d" name="q5"> D. At the very top of the HTML file</label>
+  </div>
+
+  <div class="quiz-section">
+    <button type="button" onclick="evaluateScore()">Click here to see your result</button>
+    <p id="result"></p>
+  </div>
+
+  <script>
+    function evaluateScore() {
+      let score = 0;
+      if (document.getElementById('q1c').checked) score++;
+      if (document.getElementById('q2b').checked) score++;
+      if (document.getElementById('q3b').checked) score++;
+      if (document.getElementById('q4c').checked) score++;
+      if (document.getElementById('q5b').checked) score++;
+
+      const resultElement = document.getElementById('result');
+      resultElement.innerHTML = "Your score is: " + score + " out of 5";
+      resultElement.style.display = "block"; // Ensure it's visible
+    }
+  </script>
+</body>
+</html>
