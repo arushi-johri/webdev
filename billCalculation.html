@@ -1,0 +1,113 @@
+<html>
+    <head>
+        <title>Restaurant Bill</title>
+        <style>
+            *{
+                font-family:sans-serif;
+            }
+            body{
+                background-color:lightskyblue;
+                padding:20px;
+            }
+            .dish{
+                margin:10px;
+                padding:10px;
+                background-color:white;
+                border-radius:5px;
+            }
+            #bill{
+                margin:10px;
+                padding:10px;
+                background-color:floralwhite;
+                display:none;
+            }
+            table{
+                border-collapse:collapse;
+                width:100%;
+                padding:10px;
+                text-align:center;
+            }
+            button{
+                background-color:deepskyblue;
+                border:2px solid black;
+                border-radius:2px;
+                margin:20px auto;
+                padding:10px;
+                display:block;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 style="text-align:center; padding:10px;">My Restaurant Bill!</h1>
+        <h3>Enter the quantity of each dish you want to eat:- </h3>
+        <div class="dish">
+            <label>Biryani (Rs.200)</label>
+            <input type="number" id="biryani" min="0" value="0">
+        </div>
+        <div class="dish">
+            <label>Pav Bhaji (Rs.150)</label>
+            <input type="number" id="pavBhaji" min="0" value="0">
+        </div>
+        <div class="dish">
+            <label>Chole bhature (Rs.250)</label>
+            <input type="number" id="choleBhature" min="0" value="0">
+        </div>
+        <div class="dish">
+            <label>Aloo tikki (Rs.80)</label>
+            <input type="number" id="alooTikki" min="0" value="0">
+        </div>
+        <div class="dish">
+            <label>Veg Thali(Rs.300)</label>
+            <input type="number" id="vegThali" min="0" value="0">
+        </div>
+        <button type="button" onclick="calculateBill()" onmouseover="this.style.backgroundColor='dodgerblue'" onmouseout="this.style.backgroundColor='deepskyblue'">Generate Bill</button>
+        <div id="bill">
+            <h2>Your Bill</h2>
+            <table border="3">
+                <tr>
+                    <th>Item</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Total</th>
+                </tr>
+                <tbody id="billTotal"></tbody>
+            </table>
+            <h3 id="st"></h3>
+            <h3 id="gst"></h3>
+            <h3 id="ft"></h3>
+        </div>
+        <script>
+            function calculateBill(){
+                let b = parseInt(document.getElementById('biryani').value)||0;
+                let p = parseInt(document.getElementById('pavBhaji').value)||0;
+                let c = parseInt(document.getElementById('choleBhature').value)||0;
+                let a = parseInt(document.getElementById('alooTikki').value)||0;
+                let v = parseInt(document.getElementById('vegThali').value)||0;
+                let pb = 200;
+                let pp = 150;
+                let pc = 250;
+                let pa = 80;
+                let pv = 300;
+                let tpb = pb*b;
+                let tpp = pp*p;
+                let tpc = pc*c;
+                let tpa = pa*a;
+                let tpv = pv*v;
+                let subtotal = tpb+tpp+tpc+tpa+tpv;
+                let gst = subtotal*0.05;
+                let finaltotal = gst+subtotal;
+                let rows = "";
+                if(b>0) rows +=`<tr><td>Biryani</td><td>${b}</td><td>${pb}</td><td>${tpb}</td></tr>`;
+                if(p>0) rows +=`<tr><td>Pav Bhaji</td><td>${p}</td><td>${pp}</td><td>${tpp}</td></tr>`;
+                if(c>0) rows +=`<tr><td>Chole Bhature</td><td>${c}</td><td>${pc}</td><td>${tpc}</td></tr>`;
+                if(a>0) rows +=`<tr><td>Aloo Tikki</td><td>${a}</td><td>${pa}</td><td>${tpa}</td></tr>`;
+                if(v>0) rows +=`<tr><td>Veg Thali</td><td>${v}</td><td>${pv}</td><td>${tpv}</td></tr>`;
+                document.getElementById('billTotal').innerHTML=rows;
+                document.getElementById('st').innerHTML='Subtotal is:- '+subtotal;
+                document.getElementById('gst').innerHTML='GST(5%) is:- '+gst;
+                document.getElementById('ft').innerHTML='Final total:- '+finaltotal;
+                document.getElementById('bill').style.display='block';
+            }
+        </script>
+    </body>
+</html>
